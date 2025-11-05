@@ -1,4 +1,5 @@
 const models = require('../models');
+
 const { Domo } = models;
 
 const makeDomo = async (req, res) => {
@@ -10,7 +11,7 @@ const makeDomo = async (req, res) => {
     name: req.body.name,
     age: req.body.age,
     owner: req.session.account._id,
-  }
+  };
 
   try {
     const newDomo = new Domo(domoData);
@@ -23,7 +24,7 @@ const makeDomo = async (req, res) => {
     }
     return res.status(500).json({ error: 'An error occurred' });
   }
-}
+};
 
 const makerPage = async (req, res) => {
   try {
@@ -34,9 +35,9 @@ const makerPage = async (req, res) => {
     console.log(err);
     return res.status(500).json({ error: 'Error retrieving domos!' });
   }
-}
+};
 
 module.exports = {
   makeDomo,
-  makerPage
-}
+  makerPage,
+};
